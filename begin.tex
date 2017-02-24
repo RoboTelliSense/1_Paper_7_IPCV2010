@@ -1,0 +1,269 @@
+%class
+	\PassOptionsToPackage{dvipsnames}{xcolor}
+	\documentclass[hideothersubsections]{beamer}
+
+%template
+	\usetheme{_SalmanHannover}
+	%\usecolortheme{rose}
+	\setbeamertemplate{navigation symbols}{\insertbackfindforwardnavigationsymbol, \insertframenavigationsymbol}
+%\insertslidenavigationsymbol%
+%\insertframenavigationsymbol%
+%\insertsubsectionnavigationsymbol%
+%\insertsectionnavigationsymbol%
+%\insertdocnavigationsymbol%
+%\insertbackfindforwardnavigationsymbol
+
+	%\setbeamertemplate{footline}	{\tiny{\vspace{0in}\hspace{4.3in}\Acrobatmenu{GoBack}{\beamerreturnbutton{back}}\hspace{0.05in}\color{blue}\insertframenumber/\inserttotalframenumber}} 
+
+	%\setbeamertemplate{footline}{\centering{\insertframenumber/\insertpresentationendpage}}
+	%\setbeamertemplate{footline}{\hspace*{.5cm}\scriptsize{\hfill\insertframenumber\hspace*{.5cm}}} 
+
+
+%packages
+	\usepackage{amsmath, amssymb, mathrsfs, graphicx,cancel,bigints,wrapfig}
+%\usepackage{media9}
+%\usepackage{animate}
+	\usepackage[absolute,overlay]{textpos}
+	\usepackage{tikz}
+	\usetikzlibrary{calc, shapes}
+	\usepackage{totcount}
+	\usepackage{subfigure,soul}
+	\usepackage{pgfpages}
+%\usepackage{titlesec}\titleformat{\section}{\color{red}\normalfont\Large\bfseries}{\color{red}\thesection}{1em}{}
+	\usepackage{caption}\captionsetup{labelformat=empty,labelsep=none}
+%\setbeamertemplate{caption}[numbered]
+%	\usepackage{caption} 
+%	\setbeamertemplate{caption}[numbered]
+	\usepackage{geometry}
+	\geometry{verbose}
+	%\usepackage{pifont}
+	\usepackage{color}
+\definecolor{lightgray}{gray}{0.95}
+\usepackage{listings}
+\lstset{breaklines=true,
+breakindent=0pt,
+prebreak=\mbox{\tiny$\searrow$},
+postbreak=\mbox{{\color{blue}\tiny$\rightarrow$}},
+numbers=left,
+commentstyle=\color{darkgreen},
+numberblanklines=false,
+frame=single,
+captionpos=b,
+backgroundcolor=\color{lightgray}}
+	\usepackage{xmpmulti}
+	%\usepackage[3D]{movie15}
+	\usepackage{hyperref}
+%	\usepackage{bookmark}
+	\usepackage[open,openlevel=4,atend]{bookmark}
+	%\bookmarksetup{color=blue}
+	\usepackage{multirow}
+	\usepackage[backend=bibtex, style=numeric,defernumbers]{biblatex}
+	%\usepackage[square,sort]{natbib}
+	%\usepackage{fancyhdr}\pagestyle{fancyplain} 
+%\rfoot{\thepage}
+	\usepackage{tikz}
+	\hypersetup{bookmarksdepth = 4}
+
+
+
+
+%citations files
+	\bibliography{MyCitations}
+
+%logoCAE
+    \setlength{\TPHorizModule}{1mm}
+    \setlength{\TPVertModule}{1mm}
+    \newcommand{\logoCAE}
+    {
+    	\begin{textblock}{1}(115,2.5) %(100,85)  for bottom, (115,1)  for top right
+    		\includegraphics[width=1.2cm]{figs/logo_CAE}
+    	\end{textblock}
+  
+    }
+
+%logoCAE_gray
+    \setlength{\TPHorizModule}{1mm}
+    \setlength{\TPVertModule}{1mm}
+    \newcommand{\logoCAEgray}
+    {
+    	\begin{textblock}{1}(115,1) %(100,85)  for bottom
+    		\includegraphics[width=1.2cm]{figs/logo_CAE_gray.png}
+    	\end{textblock}
+  
+    }
+
+
+%logo Tech Tower
+    \newcommand{\logoTechTower}
+    {
+    	\begin{textblock}{1}(0,0) 
+    		\includegraphics[width=1.25in]{thesis/logo_TechTower.png}
+    	\end{textblock}
+    }
+
+%logoCSIPCPL
+    \setlength{\TPHorizModule}{1mm}
+    \setlength{\TPVertModule}{1mm}
+    \newcommand{\logoCSIPCPL}
+    {
+    	\begin{textblock}{1}(100,2) %(100,85)  for bottom
+    		\includegraphics[width=1.5cm]{thesis/logo_CSIP}
+    	\end{textblock}
+    	
+	\begin{textblock}{1}(117,1) %(117,85)  for bottom
+    		\includegraphics[width=1.0cm]{thesis/logo_CPL}
+    	\end{textblock} 
+    }
+
+
+%logo tree
+    \newcommand{\logoTree}
+    {
+    	\begin{textblock}{1}(0,0) 
+    		\includegraphics[width=1.25in]{figs/logo_tree.jpg}
+    	\end{textblock}
+    }
+
+%logo tree
+    \newcommand{\logoCAEE}
+    {
+    	\begin{textblock}{1}(0,13) 
+    		\includegraphics[width=1.7in]{figs/logo_CAE_front.png}
+    	\end{textblock}
+    }
+
+
+%logo researchers
+    \newcommand{\logoResearchers}
+    {
+    	\begin{textblock}{1}(0,0) 
+    		\includegraphics[width=1.25in]{figs/lecture_SigProc_portrait_researchers.png}
+    	\end{textblock}
+    }
+
+%page numbers
+    \newcommand{\mypagenum}
+    {
+    	\begin{textblock}{1}(117,0.5)  %bottom right is (110,94)
+		{\tiny \color[rgb]{0.2,0.2,1}{\insertframenumber~/~\inserttotalframenumber}} %\insertpresentationendpage, 
+    	\end{textblock}
+    }
+
+
+
+
+%my footnote citation
+	\newcommand{\myFootnoteCitation}[2]
+	{
+		\footnote{\tiny \citeauthor{#1}, \emph{#2}, \citeyear{#1}.}  %\citeauthor{#1}, \citetitle{#1}, #2 \citeyear{#1}.
+	}
+%my refer to citation
+	\newcommand{\mycite}[1]
+	{
+		\emph{\citeauthor{#1} (\citeyear{#1})}
+	}
+%my footnote website citation
+	\newcommand{\myFootnoteWebsiteCitation}[1]
+	{
+		\footnote{\tiny \citeauthor{#1}}
+	}
+
+\let\thefootnote\relax\footnotetext{Footnotetext without footnote mark}
+
+
+%section underline
+%\newcommand{\tmpsection}[1]{}
+%\let\tmpsection=\section
+%\renewcommand{\section}[1]{\tmpsection{\underline{#1}}}
+
+
+\newenvironment<>{varblock}[2][\textwidth]{
+    \begin{center}
+      \begin{minipage}{#1}
+        \setlength{\textwidth}{#1}
+          \begin{actionenv}#3
+            \def\insertblocktitle{#2}
+            \par
+            \usebeamertemplate{block begin}}
+  {\par
+      \usebeamertemplate{block end}
+    \end{actionenv}
+  \end{minipage}
+\end{center}}
+
+
+%commands
+	\newcommand{\likelihood}{p(Z_k| x_k) }						%likelihood
+	\newcommand{\prior}{p(x_k)  } 								%prior
+	\newcommand{\posterior} {p(x_k| Z_k)}						%posterior
+	\newcommand{\prediction} {p(x_k| Z_{k-1})}					%prediction
+	\newcommand{\update} {p(x_k|Z_k)}							%update
+	\newcommand{\observations} {p(Z_k)}						%observations
+	\newcommand{\prevobservations} {p(Z_{k-1})}				%previous observations
+	\newcommand{\dxpk} {dx_{k-1}}							%dx_{k-1}
+	\newcommand{\ChapKolm}{\int{p(x_k| x_{k-1})p(x_{k-1}|Z_{k-1})} \dxpk} %Chapman Kolmogorov
+
+	%algorithm specific: JPDAF
+	\newcommand{\likelihoodJPDAF}{p(Z_k| \chi, m, Z_{k-1}) }		%1. likelihood
+	\newcommand{\priorJPDAF}{p(\chi|m, Z^{k-1}} 				%2. prior	
+	\newcommand{\observationsJPDAF} {p(Z_k}					%3. observations
+	\newcommand{\posteriorJPDAF} {p(\chi| Z_k)}					%4. posterior
+
+%environments
+	\newenvironment{changemargin}[2]
+	{
+	  	\begin{list}{}
+		{
+			\setlength{\topsep}{0pt}%
+			\setlength{\leftmargin}{#1}%
+			\setlength{\rightmargin}{#2}%
+			\setlength{\listparindent}{\parindent}%
+			\setlength{\itemindent}{\parindent}%
+			\setlength{\parsep}{\parskip}%
+		}
+	  	\item[]
+		}
+		{\end{list}
+	}
+%font sizes
+\makeatletter
+  \newcommand\tinyv{\@setfontsize\tinyv{5pt}{4}}
+\makeatother
+
+\makeatletter
+  \newcommand\tinyvv{\@setfontsize\tinyvv{8pt}{4}}
+\makeatother
+
+\makeatletter
+  \newcommand\tinyvs{\@setfontsize\tinyvs{7pt}{4}}
+\makeatother
+
+
+\makeatletter
+  \newcommand\tinyvvv{\@setfontsize\tinyvvv{0.5pt}{0.5}}
+\makeatother
+
+
+%booleans
+\newboolean{PrintHandout}
+\newboolean{ShowOverlays}
+
+%tikz styles
+\tikzstyle{mybox} = [draw=red, fill=blue!20, very thick,rectangle, rounded corners, inner sep=10pt, inner ysep=20pt]
+\tikzstyle{fancytitle} =[fill=blue, text=white, ellipse]
+\tikzstyle{myboxtwo} = [fill=blue!20,rectangle, rounded corners, inner sep=10pt, inner ysep=20pt]
+
+%colors
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+\definecolor{darkcyan}{rgb}{0,0.5,0.5}
+\definecolor{darkbrown}{rgb}{0.65,0.48,0.14}
+\definecolor{lightblue}{rgb}{0.58,0.7,0.9}
+\definecolor{lightred}{rgb}{0.92,0.52,0.52}
+
+%personal details
+	\author{Dr Salman Aslam}
+	%\author{Dr Salman Aslam}
+	\institute{Wing Commander, PAF\\Associate Professor\\Avionics Department\\College of Aeronautical Engineering\\PAF Academy Risalpur}
+	\date{}
+
+\begin{document}
